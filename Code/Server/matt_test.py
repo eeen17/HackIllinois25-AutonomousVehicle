@@ -4,7 +4,7 @@ from motor import tankMotor
 from servo import Servo
 from infrared import Infrared
 import time
-import ra
+imp
 
 # Define the Car class to manage all components and functionalities
 class Car:
@@ -86,10 +86,10 @@ class Car:
             turn_direction = random.choice(['left', 'right'])
             if turn_direction == 'left':
                 print("Turning left.")
-                self.motor.setMotorModel(-500, 500)
+                self.motor.setMotorModel(-1500, 1500)
             else:
                 print("Turning right.")
-                self.motor.setMotorModel(500, -500)
+                self.motor.setMotorModel(1500, -1500)
             time.sleep(0.5)
         else:
             # No black line detected; move randomly.
@@ -100,10 +100,10 @@ class Car:
                 self.motor.setMotorModel(200, 200)
             elif action == 'slight_left':
                 print("Making a slight left turn randomly.")
-                self.motor.setMotorModel(100, 200)
+                self.motor.setMotorModel(1000, 1200)
             elif action == 'slight_right':
                 print("Making a slight right turn randomly.")
-                self.motor.setMotorModel(200, 100)
+                self.motor.setMotorModel(1200, 1000)
             time.sleep(random.uniform(0.2, 0.5))
 
 
@@ -117,9 +117,9 @@ class Car:
             print("car_mode_clamp_up distance:", distance)
             # Control motor based on distance
             if distance <= 5:
-                self.motor.setMotorModel(-1200, -1200)  # Move backward slowly
+                self.motor.setMotorModel(-200, -200)  # Move backward slowly
             elif distance > 5 and distance < 7.5:
-                self.motor.setMotorModel(-800, -800)    # Move backward faster
+                self.motor.setMotorModel(-400, -400)    # Move backward faster
             elif distance >= 7.5 and distance <= 7.7:
                 self.motor.setMotorModel(0, 0)          # Stop motor
                 # Adjust servos to clamp up
@@ -134,9 +134,9 @@ class Car:
                     time.sleep(0.01)
                 self.clamp_mode = 0                     # Reset clamp mode
             elif distance > 7.7 and distance < 11:
-                self.motor.setMotorModel(800, 800)      # Move forward slowly
+                self.motor.setMotorModel(400, 400)      # Move forward slowly
             elif distance >= 11:
-                self.motor.setMotorModel(1200, 1200)    # Move forward quickly
+                self.motor.setMotorModel(600, 600)    # Move forward quickly
             # Sleep for a short duration
             time.sleep(0.05) 
 
