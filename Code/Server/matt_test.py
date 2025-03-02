@@ -70,40 +70,40 @@ class Car:
         time.sleep(0.2)
     
     def mode_infrared(self):
-    # Read the infrared sensor (assuming 2 means “no black line”)
-    infrared_value = self.infrared.read_all_infrared()
-    print("Infrared reading:", infrared_value)  # For debugging
+        # Read the infrared sensor (assuming 2 means “no black line”)
+        infrared_value = self.infrared.read_all_infrared()
+        print("Infrared reading:", infrared_value)  # For debugging
 
-    if infrared_value != 2:
-        # BLACK LINE detected!
-        print("Black line detected. Backing up...")
-        # Back off: reverse for 0.5 seconds at a set speed.
-        self.motor.setMotorModel(-1500, -1500)
-        time.sleep(0.5)
-        
-        # Choose randomly between a left or right turn to avoid the line.
-        turn_direction = random.choice(['left', 'right'])
-        if turn_direction == 'left':
-            print("Turning left.")
-            self.motor.setMotorModel(-1500, 1500)
+        if infrared_value != 2:
+            # BLACK LINE detected!
+            print("Black line detected. Backing up...")
+            # Back off: reverse for 0.5 seconds at a set speed.
+            self.motor.setMotorModel(-1500, -1500)
+            time.sleep(0.5)
+            
+            # Choose randomly between a left or right turn to avoid the line.
+            turn_direction = random.choice(['left', 'right'])
+            if turn_direction == 'left':
+                print("Turning left.")
+                self.motor.setMotorModel(-1500, 1500)
+            else:
+                print("Turning right.")
+                self.motor.setMotorModel(1500, -1500)
+            time.sleep(0.5)
         else:
-            print("Turning right.")
-            self.motor.setMotorModel(1500, -1500)
-        time.sleep(0.5)
-    else:
-        # No black line detected; move randomly.
-        # You can either choose a random action or generate random speeds.
-        action = random.choice(['forward', 'slight_left', 'slight_right'])
-        if action == 'forward':
-            print("Moving forward randomly.")
-            self.motor.setMotorModel(1200, 1200)
-        elif action == 'slight_left':
-            print("Making a slight left turn randomly.")
-            self.motor.setMotorModel(1000, 1200)
-        elif action == 'slight_right':
-            print("Making a slight right turn randomly.")
-            self.motor.setMotorModel(1200, 1000)
-        time.sleep(random.uniform(0.2, 0.5))
+            # No black line detected; move randomly.
+            # You can either choose a random action or generate random speeds.
+            action = random.choice(['forward', 'slight_left', 'slight_right'])
+            if action == 'forward':
+                print("Moving forward randomly.")
+                self.motor.setMotorModel(1200, 1200)
+            elif action == 'slight_left':
+                print("Making a slight left turn randomly.")
+                self.motor.setMotorModel(1000, 1200)
+            elif action == 'slight_right':
+                print("Making a slight right turn randomly.")
+                self.motor.setMotorModel(1200, 1000)
+            time.sleep(random.uniform(0.2, 0.5))
 
 
 
