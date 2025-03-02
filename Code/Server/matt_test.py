@@ -1,8 +1,8 @@
 import RPi.GPIO as GPIO
 import time
-from Motor import *
+from gpiozero import Motor
 from servo import *
-from Ultrasonic import *
+from ultrasonic import *
 from Action import *
 from Line_Tracking import *
 import time
