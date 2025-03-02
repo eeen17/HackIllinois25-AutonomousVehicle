@@ -775,10 +775,10 @@ class mywindow(QMainWindow,Ui_Client):
                 if radius > 15:
                     cv2.circle(video, (int(X), int(Y)), 3, (255, 0, 0),5)
                     cv2.circle(video, (int(X), int(Y)), int(radius), (0, 255, 0), 2)
-                    if d < 14:
-                        self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-600) + '#' + str(-600) + self.endChar)
-                    elif d > 20:
-                        self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(600) + '#' + str(600) + self.endChar)
+                    if d < 10:
+                        self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-300) + '#' + str(-300) + self.endChar)
+                    elif d > 30:
+                        self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(300) + '#' + str(300) + self.endChar)
                     else:
                         if x < 85:
                             self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)
