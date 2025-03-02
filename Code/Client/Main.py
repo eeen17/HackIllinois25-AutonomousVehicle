@@ -67,7 +67,8 @@ class mywindow(QMainWindow,Ui_Client):
         self.color_custom_flag2 = False
         self.color_select_button = 0
         # brg
-        self.color_red =   [125, 50, 50, 170, 255, 255]
+        # self.color_red =   [125, 50, 50, 170, 255, 255]
+        self.color_red = [140, 50, 50, 170, 255, 255]
         # self.color_red =   [0, 118, 31, 6, 255, 255]
         self.color_green = [50, 143, 129, 60, 255, 255]
         self.color_blue =  [100, 94, 142, 120, 255, 255]
@@ -782,6 +783,7 @@ class mywindow(QMainWindow,Ui_Client):
                     cv2.circle(video, (int(X), int(Y)), int(radius), (0, 255, 0), 2)
                     if d < 5:
                         self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-600) + '#' + str(-600) + self.endChar)
+                        self.TCP.sendData(cmd.CMD_ARM_MOVE + '#' + str(90) + self.endChar)
                     elif d > 40:
                         self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(600) + '#' + str(600) + self.endChar)
                     else:
