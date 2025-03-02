@@ -75,7 +75,7 @@ class Car:
         infrared_value = self.infrared.read_all_infrared()
         print("Infrared reading:", infrared_value)  # For debugging
 
-        if infrared_value != 2:
+        if infrared_value != 0:
             # BLACK LINE detected!
             print("Black line detected. Backing up...")
             # Back off: reverse for 0.5 seconds at a set speed.
