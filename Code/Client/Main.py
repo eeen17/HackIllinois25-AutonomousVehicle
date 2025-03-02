@@ -70,7 +70,7 @@ class mywindow(QMainWindow,Ui_Client):
         self.color_green = [50, 143, 129, 60, 255, 255]
         self.color_green = [50, 143, 129, 60, 255, 255]
         self.color_blue =  [100, 94, 142, 120, 255, 255]
-        self.color_brown = [10, 100, 20, 20, 255, 200]
+        self.color_purple = [140, 100, 100, 160, 255, 255]
 
         self.setFocusPolicy(Qt.StrongFocus)
         self.name.setAlignment(QtCore.Qt.AlignCenter)
@@ -756,7 +756,7 @@ class mywindow(QMainWindow,Ui_Client):
             # elif self.color_select_button == 3:
             #     inRange_hsv = cv2.inRange(gs_frame, (self.color_blue[0], self.color_blue[1], self.color_blue[2]),(self.color_blue[3], self.color_blue[4], self.color_blue[5]))
             elif self.color_select_button == 3:
-                inRange_hsv = cv2.inRange(gs_frame, (self.color_brown[0], self.color_brown[1], self.color_brown[2]),(self.color_brown[3], self.color_brown[4], self.color_brown[5]))
+                inRange_hsv = cv2.inRange(gs_frame, (self.color_purple[0], self.color_purple[1], self.color_purple[2]),(self.color_purple[3], self.color_purple[4], self.color_purple[5]))
             cv2.imshow("Image", inRange_hsv)
             cnts = cv2.findContours(inRange_hsv.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
             c = max(cnts, key=cv2.contourArea)
