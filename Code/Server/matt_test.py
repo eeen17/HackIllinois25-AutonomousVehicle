@@ -4,6 +4,7 @@ from motor import tankMotor
 from servo import Servo
 from infrared import Infrared
 import time
+import random
 
 # Define the Car class to manage all components and functionalities
 class Car:
