@@ -67,7 +67,8 @@ class mywindow(QMainWindow,Ui_Client):
         self.color_custom_flag2 = False
         self.color_select_button = 0
         # brg
-        self.color_red =   [0, 118, 31, 6, 255, 255]
+        self.color_red =   [125, 50, 50, 170, 255, 255]
+        # self.color_red =   [0, 118, 31, 6, 255, 255]
         self.color_green = [50, 143, 129, 60, 255, 255]
         self.color_blue =  [100, 94, 142, 120, 255, 255]
         self.color_purple = [140, 100, 100, 160, 255, 255]
@@ -785,18 +786,18 @@ class mywindow(QMainWindow,Ui_Client):
                         self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(600) + '#' + str(600) + self.endChar)
                     else:
                         if x < 85:
-                            self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-1350) + '#' + str(1350) + self.endChar)
+                            self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)
                         elif x > 315:
-                            self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(1350) + '#' + str(-1350) + self.endChar)
+                            self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(675) + '#' + str(-675) + self.endChar)
                         else:
                             self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(0) + '#' + str(0) + self.endChar)
                 else:
                     # rotate until see ball
-                    self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-1350) + '#' + str(1350) + self.endChar)
+                    self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)
                     # self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(0) + '#' + str(0) + self.endChar)
-                    # self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-1350) + '#' + str(1350) + self.endChar)
+                    # self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)
             else:
-                self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-1350) + '#' + str(1350) + self.endChar)
+                self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)
                 # self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(0) + '#' + str(0) + self.endChar)
         except:
             pass
