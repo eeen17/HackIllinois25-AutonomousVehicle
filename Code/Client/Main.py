@@ -783,15 +783,16 @@ class mywindow(QMainWindow,Ui_Client):
                     elif d > 40:
                         self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(300) + '#' + str(300) + self.endChar)
                     else:
-                        if x < 65:
+                        if x < 85:
                             self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)
-                        elif x > 335:
+                        elif x > 315:
                             self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(675) + '#' + str(-675) + self.endChar)
                         else:
                             self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(0) + '#' + str(0) + self.endChar)
                 else:
                     # rotate until see ball
-                    self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(0) + '#' + str(0) + self.endChar)
+                    self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)
+                    # self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(0) + '#' + str(0) + self.endChar)
                     # self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)
             else:
                 self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)

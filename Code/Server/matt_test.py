@@ -4,7 +4,7 @@ from motor import tankMotor
 from servo import Servo
 from infrared import Infrared
 import time
-import random
+import ra
 
 # Define the Car class to manage all components and functionalities
 class Car:
@@ -60,13 +60,13 @@ class Car:
         if distance != 0:
             # If distance is less than 45 cm, move backward and turn left
             if distance < 45:
-                self.motor.setMotorModel(-1500, -1500)
+                self.motor.setMotorModel(-500, -500)
                 time.sleep(0.4)
-                self.motor.setMotorModel(-1500, 1500)
+                self.motor.setMotorModel(-500, 500)
                 time.sleep(0.2)
             # Otherwise, move forward
             else:
-                self.motor.setMotorModel(1500, 1500)
+                self.motor.setMotorModel(500, 500)
         # Sleep for a short duration
         time.sleep(0.2)
     
@@ -75,21 +75,21 @@ class Car:
         infrared_value = self.infrared.read_all_infrared()
         print("Infrared reading:", infrared_value)  # For debugging
 
-        if infrared_value != 0:
+        if infrared_value != 2:
             # BLACK LINE detected!
             print("Black line detected. Backing up...")
             # Back off: reverse for 0.5 seconds at a set speed.
-            self.motor.setMotorModel(-1500, -1500)
+            self.motor.setMotorModel(-500, -500)
             time.sleep(0.5)
             
             # Choose randomly between a left or right turn to avoid the line.
             turn_direction = random.choice(['left', 'right'])
             if turn_direction == 'left':
                 print("Turning left.")
-                self.motor.setMotorModel(-1500, 1500)
+                self.motor.setMotorModel(-500, 500)
             else:
                 print("Turning right.")
-                self.motor.setMotorModel(1500, -1500)
+                self.motor.setMotorModel(500, -500)
             time.sleep(0.5)
         else:
             # No black line detected; move randomly.
@@ -97,13 +97,13 @@ class Car:
             action = random.choice(['forward', 'slight_left', 'slight_right'])
             if action == 'forward':
                 print("Moving forward randomly.")
-                self.motor.setMotorModel(1200, 1200)
+                self.motor.setMotorModel(200, 200)
             elif action == 'slight_left':
                 print("Making a slight left turn randomly.")
-                self.motor.setMotorModel(1000, 1200)
+                self.motor.setMotorModel(100, 200)
             elif action == 'slight_right':
                 print("Making a slight right turn randomly.")
-                self.motor.setMotorModel(1200, 1000)
+                self.motor.setMotorModel(200, 100)
             time.sleep(random.uniform(0.2, 0.5))
 
 
