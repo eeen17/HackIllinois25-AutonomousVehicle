@@ -71,7 +71,7 @@ class mywindow(QMainWindow,Ui_Client):
         # self.color_red =   [0, 118, 31, 6, 255, 255]
         self.color_green = [50, 143, 129, 60, 255, 255]
         self.color_blue =  [100, 94, 142, 120, 255, 255]
-        self.color_purple = [140, 100, 100, 160, 255, 255]
+        self.color_purple = [140, 50, 50, 170, 255, 255]
 
         self.setFocusPolicy(Qt.StrongFocus)
         self.name.setAlignment(QtCore.Qt.AlignCenter)
