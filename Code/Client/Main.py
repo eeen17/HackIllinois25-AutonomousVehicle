@@ -752,7 +752,8 @@ class mywindow(QMainWindow,Ui_Client):
             gs_frame = cv2.dilate(gs_frame, (2, 2), iterations=1)
 
             if self.color_select_button == 1:
-                inRange_hsv = cv2.inRange(gs_frame, (self.color_red[0], self.color_red[1], self.color_red[2]),(self.color_red[3], self.color_red[4], self.color_red[5]))
+                # inRange_hsv = cv2.inRange(gs_frame, (self.color_red[0], self.color_red[1], self.color_red[2]),(self.color_red[3], self.color_red[4], self.color_red[5]))
+                inRange_hsv = cv2.inRange(gs_frame, (140, 50, 50),(170, 255, 255))
             elif self.color_select_button == 2:
                 inRange_hsv = cv2.inRange(gs_frame, (self.color_green[0], self.color_green[1], self.color_green[2]),(self.color_green[3], self.color_green[4], self.color_green[5]))
             # elif self.color_select_button == 3:
@@ -783,7 +784,7 @@ class mywindow(QMainWindow,Ui_Client):
                     cv2.circle(video, (int(X), int(Y)), int(radius), (0, 255, 0), 2)
                     if d < 5:
                         self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-600) + '#' + str(-600) + self.endChar)
-                        self.TCP.sendData(cmd.CMD_ARM_MOVE + '#' + str(90) + self.endChar)
+                        self.servo=90
                     elif d > 40:
                         self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(600) + '#' + str(600) + self.endChar)
                     else:
