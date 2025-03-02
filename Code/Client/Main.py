@@ -783,9 +783,9 @@ class mywindow(QMainWindow,Ui_Client):
                     elif d > 40:
                         self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(300) + '#' + str(300) + self.endChar)
                     else:
-                        if x < 110:
+                        if x < 65:
                             self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(-675) + '#' + str(675) + self.endChar)
-                        elif x > 290:
+                        elif x > 335:
                             self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(675) + '#' + str(-675) + self.endChar)
                         else:
                             self.TCP.sendData(cmd.CMD_MOTOR + '#' + str(0) + '#' + str(0) + self.endChar)
